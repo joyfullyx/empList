@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import API from "./utils/API";
 
 export default function App() {
+  const [employees, setEmployees] = useState([]);
+
+  const getEmployees = () => {
+    API.employees().then((res) => {
+      console.log("=== res.data ===", res.data);
+      setEmployees(res.data);
+    });
+  };
+
   return (
     <div>
       <h1>home page here</h1>
