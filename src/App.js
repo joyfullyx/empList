@@ -25,20 +25,30 @@ export default function App() {
 
   return (
     <>
-      <div className="employeeList">
+      <div className="employeeList" style={styles.employeeListStyle}>
         {employees.allEmployees.map((allEmployees, id) => (
           <EmployeeCard
             pic={allEmployees.image}
             name={`${allEmployees.firstName} ${allEmployees.lastName}`}
             jobTitle={allEmployees.jobTitle}
-            about={allEmployees.about}
-            id={allEmployees._id}
+            about={`"${allEmployees.about}"`}
+            key={allEmployees._id}
+            email={allEmployees.email}
+            color={allEmployees.favoriteColor}
           />
         ))}
       </div>
     </>
   );
 }
+
+const styles = {
+  employeeListStyle: {
+    backgroundColor: "#f2f3f5",
+    paddingTop: "20px",
+    paddingBottom: "20px",
+  },
+};
 
 // Product Requirements
 // -----------------------------
