@@ -10,16 +10,13 @@ export default function EmployeeCard({
   _id,
   color,
 }) {
-  const colors = {
-    favoriteColor: { color },
-  };
-
   return (
     <>
       <div className="employeeCard">
         <div className="image">
           <img
             className="profilePicture"
+            style={{ borderColor: `${color}` }}
             alt="employee headshot"
             src={pic}
             id={_id}
@@ -37,6 +34,7 @@ export default function EmployeeCard({
         <div className="contactButton">
           <button
             className="button"
+            style={{ backgroundColor: `${color}` }}
             onClick={() => (window.location = `mailto:${email}`)}
           >
             CONTACT ME
