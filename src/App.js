@@ -1,20 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import API from "./utils/API";
+import EmployeeCard from "./Components/EmployeeCard/EmployeeCard";
+import { useEffect } from "react/cjs/react.development";
 
 export default function App() {
-  const [employees, setEmployees] = useState([]);
+  const [employees, setEmployees] = useState({
+    allEmployees: [],
+  });
 
   const getEmployees = () => {
-    API.employees().then((res) => {
-      console.log("=== res.data ===", res.data);
-      setEmployees(res.data);
-    });
+    API.employees()
+      .then((res) => {
+        console.log("=== res.data ===", res.data);
+        setEmployees({
+          allEmployees: res.data,
+        });
+      })
+      .catch((err) => console.log(err));
   };
 
+  useEffect(() => {
+    getEmployees();
+  }, []);
+
   return (
-    <div>
-      <h1>home page here</h1>
-    </div>
+    <>
+      <div className="employeeList">
+        {employees.allEmployees.map((allEmployees, id) => (
+          <EmployeeCard
+            pic={allEmployees.image}
+            name={`${allEmployees.firstName} ${allEmployees.lastName}`}
+            jobTitle={allEmployees.jobTitle}
+            about={allEmployees.about}
+            id={allEmployees._id}
+          />
+        ))}
+      </div>
+    </>
   );
 }
 
