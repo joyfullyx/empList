@@ -1,4 +1,4 @@
-# Accolade Assessment
+# Employee List
 
 Mobile responsive React web application that lists employees.
 
