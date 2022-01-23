@@ -22,11 +22,13 @@ export default function EmployeeCard({
             id={_id}
           ></img>
         </div>
-        <div className="name">
-          <p>{name}</p>
-        </div>
-        <div className="title">
-          <p>{jobTitle}</p>
+        <div className="nameTitle">
+          <div className="name">
+            <p>{name}</p>
+          </div>
+          <div className="title">
+            <p>{jobTitle}</p>
+          </div>
         </div>
         <div className="aboutQuote" id="quoteDiv">
           <p>{about}</p>
