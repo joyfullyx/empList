@@ -6,7 +6,7 @@
   justify-content: center;
   flex-direction: column;
   position: relative;
-  width: 32%;
+  width: 40%;
   padding: 1px;
   margin: auto;
   margin-bottom: 20px;
@@ -55,8 +55,6 @@
   font-style: italic;
   font-weight: bold;
   text-align: center;
-  /* margin-top: 5px; */
-  /* margin-bottom: 20px; */
   margin: auto;
   padding: 1px;
 }
@@ -87,8 +85,9 @@
 }
 
 #quoteDiv {
-  width: calc(104%);
+  width: calc(103%);
   position: absolute;
   bottom: 90px;
   right: -10px;
+  left: -10px;
 }
